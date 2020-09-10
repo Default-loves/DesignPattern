@@ -1,16 +1,13 @@
-package com.junyi.java.Creation;
-
-/*
-生成器
-封装一个对象的构造过程，并允许按步骤构造
- */
+package Builder;
 
 import java.util.Arrays;
-public class Builder {}
 
-
-
-
+/**
+ * @time: 2020/9/10 12:01
+ * @version: 1.0
+ * @author: junyi Xu
+ * @description:
+ */
 public class AbstractStringBuilder {
     protected char[] value;
 
@@ -43,27 +40,5 @@ public class AbstractStringBuilder {
             newCapacity = Integer.MAX_VALUE;
         }
         value = Arrays.copyOf(value, newCapacity);
-    }
-}
-
-public class StringBuilder extends AbstractStringBuilder {
-    public StringBuilder() {
-        super(16);
-    }
-
-    @Override
-    public String toString() {
-        // Create a copy, don't share the array
-        return new String(value, 0, count);
-    }
-}
-public class Client {
-    public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder();
-        final int count = 26;
-        for (int i = 0; i < count; i++) {
-            sb.append((char) ('a' + i));
-        }
-        System.out.println(sb.toString());
     }
 }

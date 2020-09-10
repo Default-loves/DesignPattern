@@ -1,16 +1,14 @@
-package com.junyi.java.Creation;
-
-
+package Singleton;
 
 /*
 懒汉式，线程不安全
 * */
-public class Singleton {
-    private static Singleton instance;
-    private Singleton() {}
-    public static Singleton getInstance() {
+class Singleton1 {
+    private static Singleton1 instance;
+    private Singleton1() {}
+    public static Singleton1 getInstance() {
         if (instance == null) {
-            instance = new Singleton();
+            instance = new Singleton1();
         }
         return instance;
     }
@@ -26,17 +24,17 @@ instance = new Singleton()这句话会执行三件事：
 例如，线程 T1 执行了 1 和 3，此时 T2 调用 getUniqueInstance() 后发现 uniqueInstance 不为空，因此返回 uniqueInstance，但此时 uniqueInstance 还未被初始化。
 使用 volatile 可以禁止 JVM 的指令重排，保证在多线程环境下也能正常运行。
 * */
-public class Singleton {
-    private static volatile Singleton instance;
+class Singleton2 {
+    private static volatile Singleton2 instance;
 
-    private Singleton() {
+    private Singleton2() {
     }
 
-    public static Singleton getInstance() {
+    public static Singleton2 getInstance() {
         if (instance == null) {
-            synchronized (Singleton.class) {
+            synchronized (Singleton2.class) {
                 if (instance == null) { //双重检验，这一个if用来防止有两个或者多个线程同时进入，如果没有if的话，会有两个或者多个实例
-                    instance = new Singleton();
+                    instance = new Singleton2();
                 }
             }
         }
@@ -52,12 +50,12 @@ public class Singleton {
 并且 JVM 能确保 INSTANCE 只被实例化一次。
 这种方式不仅具有延迟初始化的好处，而且由 JVM 提供了对线程安全的支持。
 * */
-public class Singleton {
-    private Singleton(){}
+class Singleton3 {
+    private Singleton3(){}
     private static class SingletonHolder {
-        private static final Singleton INSTANCE = new Singleton();
+        private static final Singleton3 INSTANCE = new Singleton3();
     }
-    public static Singleton getInstance() {
+    public static Singleton3 getInstance() {
         return SingletonHolder.INSTANCE;
     }
 }
