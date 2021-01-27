@@ -21,7 +21,7 @@ public class HandlerChain {
     }
 
     public boolean process(Request request) {
-        // 依次调用每个Handler:
+        // 依次调用每个 Handler
         for (Handler handler : handlers) {
             Boolean r = handler.process(request);
             if (r != null) {

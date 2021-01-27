@@ -1,4 +1,4 @@
-package com.junyi.adapter;
+package com.junyi.adapter.example;
 
 import java.util.concurrent.Callable;
 

@@ -18,10 +18,9 @@ public class AbstractStringBuilderMy {
         value = new char[capacity];
     }
 
-    public AbstractStringBuilderMy append(char c) {
+    public void append(char c) {
         ensureCapacityInternal(count + 1);
         value[count++] = c;
-        return this;
     }
 
     private void ensureCapacityInternal(int minimumCapacity) {

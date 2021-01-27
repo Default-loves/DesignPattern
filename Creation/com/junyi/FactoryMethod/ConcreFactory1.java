@@ -10,7 +10,7 @@ public class ConcreFactory1 extends FactoryMy {
 
     @Override
     public Product factoryMethod() {
-        return null;
+        return new ConcreProduct1();
     }
 }
 

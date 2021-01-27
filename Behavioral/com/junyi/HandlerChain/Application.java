@@ -8,6 +8,7 @@ import com.junyi.HandlerChain.handler.ManagerHandler;
 import java.math.BigDecimal;
 
 /**
+ * 责任链模式，能够任意添加处理器，处理每一个请求
  * Manager：只能审核1000元以下的报销；
  * Director：只能审核10000元以下的报销；
  * CEO：可以审核任意额度。
