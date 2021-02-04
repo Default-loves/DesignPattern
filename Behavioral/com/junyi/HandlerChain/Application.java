@@ -6,6 +6,9 @@ import com.junyi.HandlerChain.handler.DirectorHandler;
 import com.junyi.HandlerChain.handler.ManagerHandler;
 
 import java.math.BigDecimal;
+/**
+ * 责任链，将处理请求的对象(Handler)构成一条链条，请求在链条中依次被Handler进行处理，直到其中某个对象处理成功，或者每个Handler都对请求进行处理，通常这种责任链称为拦截器(Interceptor)或者过滤器(Filter)，通常来说，我们会编写Handler进行日志处理、权限处理、访问控制等操作。
+ */
 
 /**
  * 责任链模式，能够任意添加处理器，处理每一个请求
